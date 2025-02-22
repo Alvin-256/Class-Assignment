@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Application</title>
+    <link rel="stylesheet" href="general_styles.css">
+
+    <style>
+        body {
+            background-color: aquamarine;
+        }
+    </style>
+
+    <script src="Week 6/Actions/action_it.js"></script>
+
+    <script>
+        function greet() {
+            alert('Welcome to the Dynamic World');
+        }
+    </script>
+
+</head>
+<body onload="greet()">
+    <button onclick="alert('Hello Alvin Rubagumya')">Click Me</button>
+
+    <p id="text">This is the first HTML, CSS, and JavaScript Fusion</p>
+    <button id="changeTextBtn">Change Text</button>
+    
+    <button id="Click">Internal JavaScript Click</button>
+    
+    <button id="colorChangeBtn">Change Background</button>
+
+    <input type="color" id="colorInput" />
+    <button onclick="changeBackgroundColor()">Change Background Color</button>
+
+    <script>
+        
+        const buttonId = document.getElementById("Click");
+
+        buttonId.onclick = function() {
+            alert("Button was clicked");
+        }
+
+        buttonId.onmouseover = function() {
+            buttonId.style.color = "red";
+        }
+
+        buttonId.onmouseout = function() {
+            buttonId.style.color = "blue";
+        }
+
+        document.getElementById("colorChangeBtn").onclick = function() {
+            document.body.style.backgroundColor = "orange";
+        }
+
+        function changeBackgroundColor() {
+            const color = document.getElementById("colorInput").value;
+
+            
+            if (!color) {
+                document.body.style.backgroundColor = "aquamarine"; // default color
+                alert("Invalid color input. Using default color.");
+            } else {
+                document.body.style.backgroundColor = color;
+            }
+        }
+
+        
+        const changeTextBtn = document.getElementById("changeTextBtn");
+        const textElement = document.getElementById("text");
+        const originalText = "This is the first HTML, CSS, and JavaScript Fusion";
+        const changedText = "I am testing inline JavaScript";
+
+        changeTextBtn.onclick = function() {
+            if (textElement.innerHTML === originalText) {
+                textElement.innerHTML = changedText;
+            } else {
+                textElement.innerHTML = originalText;
+            }
+        }
+    </script>
+
+</body>
+</html>
